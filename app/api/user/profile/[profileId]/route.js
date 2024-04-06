@@ -6,7 +6,7 @@ export const GET = async (req, { params }) => {
   try {
     await connectToDB();
 
-    const user = await User.findOne({ clerkId: params.id })
+    const user = await User.findById(params.profileId)
       .populate({
         path: "posts savedPosts likedPosts",
         model: Post,
